@@ -10,24 +10,39 @@
     <header>
         <h2><a href="">View high scores</a></h2>
 
-        <div class="timer">
-            <h2>Time: 75</h2>
+        <div>
+            <h2>Time: <span id="countdown">75</span></h2>
         </div>
     </header>
 
 
     <main class="quiz">
         <!-- INSTRUCTIONS -->
-        <section class="instructions">
+        <section id="instructions">
             <h1>Coding Quiz Challenge</h1>
             <p>Test your knowledge of coding fundamentals! Click the start button to begin. There is a time limit and you get points for every correct answer. However, you lose time for every wrong answer.</p>
             <p>Good luck!</p>
 
             <button class="btn" id="start">START QUIZ</button>
         </section>
-        <!-- QUESTIONS -->
-        <section class="questions">
 
+        <!-- QUESTIONS -->
+        <section id="questions" class="questions">
+            <div id="question-container">
+                <h2 id="question" class="question">This is a question</h2>
+                <ul>
+                    <li><button type="button" id="option1" value="0" class="option">option1</button></li>
+                    <li><button type="button" id="option2" value="1" class="option">option2</button></li>
+                    <li><button type="button" id="option3" value="2" class="option">option3</button></li>
+                    <li><button type="button" id="option4" value="3" class="option">option4</button></li>
+                </ul>
+            </div>
+
+            <!-- VALIDATE ANSWER -->
+            <div id="answer" class="answer">
+                <hr>
+                <h3>Correct!</h3>
+            </div>
         </section>
     </main>
     <script src="./assets/js/script.js"></script>
