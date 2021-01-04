@@ -1,6 +1,6 @@
 var score = 0;
 
-qIndex = 0;
+var qIndex = 0;
 
 //time values
 var timeLeft = 75;
@@ -12,7 +12,7 @@ var startBtn = document.getElementById("start");
 //elements to be hidden and displayed
 var instructionsEl = document.querySelector("#instructions");
 var questionsEl = document.querySelector("#questions");
-var checkAnswer = document.getElementById("#answer");
+var checkAnswer = document.getElementById("answer");
 
 //answered
 var answered = 0;
@@ -30,23 +30,23 @@ var optionBtn4 = document.querySelector("#option4");
 var questions = [{
         question: "An array always starts at index:",
         options: ["null", "1", "-1", "0"],
-        answer: "4"
+        answer: "0"
     },{
         question: "A function within an object is called a ______.",
         options: ["key", "property", "method", "value"],
-        answer: "3"
+        answer: "method"
     },{
         question: "Arrays in JavaScript can be used to store _______",
         options: ["Booleans", "Numbers and strings", "Other arrays", "All of the above"],
-        answer: "4"
+        answer: "All of the above"
     },{
         question: "Which of the following makes the browser display a text box asking for user input?",
         options: ["prompt", "alert", "form", "input"],
-        answer: "2"
+        answer: "prompt"
     },{
         question: "The condition in an if/else statement is enclosed within _____.",
         options: ["parentheses", "curly braces", "quotes", "commas"],
-        answer: "1"
+        answer: "parentheses"
     },
 ];
 
@@ -85,7 +85,48 @@ function generateQuestion() {
         optionBtn4.textContent = questions[qIndex].options[3];
 }
 
+//display if answer is either correct or wrong
+function validateAnswer (answer) {
+    checkAnswer.style.display ="block";
+    setTimeout(function() {
+        checkAnswer.style.display = "none";
+    },2000);
+
+    if (questions[qIndex].answer === questions[qIndex].options[answer]) {
+        checkAnswer.textContent = "Correct!"
+    }
+    else {
+        checkAnswer.innerHTML = "Wrong!"
+        timeLeft -= penalty;
+    }
+    qIndex++;
+
+    if (qIndex <questions.length) {
+        generateQuestion();
+    }
+    else {
+        endQuiz();
+    }
+}
+
+//Check answers
+function firstQuestion() { validateAnswer(0); }
+function secondQuestion() { validateAnswer(1); }
+function thirdQuestion() { validateAnswer(2); }
+function fourthQuestion() { validateAnswer(3); }
+
+//end Quiz
+
+function endQuiz() {
+
+}
 
 
 
+//Event Listeners
+startBtn.addEventListener("click", startQuiz);
+optionBtn1.addEventListener("click", firstQuestion);
+optionBtn2.addEventListener("click", secondQuestion);
+optionBtn3.addEventListener("click", thirdQuestion);
+optionBtn4.addEventListener("click", fourthQuestion);
 
