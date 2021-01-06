@@ -129,10 +129,6 @@ header h2 a:hover {
     display: none;
 }
 
-div .answer,hr,h3 {
-   display: none;
-}
-
 hr {
     border: 1px solid #a7a7a7;
     margin: 30px 0 10px 0;
@@ -145,8 +141,15 @@ hr {
 }
 
 .scores {
-    display: none; /*change to show score*/
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.scores input {
+    margin: auto;
+    width: 30%;
+    margin-bottom: 15px;
 }
 
 .scores h2 {
@@ -196,10 +199,22 @@ form input {
     transition: 0.1s;
 }
 
-.highscores {
+.score-submit {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.highscore-container {
     display: flex;
     flex-direction: column;
+}
+
+.highscores {
+    display: flex;
+    justify-content: center;
     text-align: center;
+
 }
 
 .highscores h2 {
@@ -209,6 +224,7 @@ form input {
 
 .scorelist ul {
     margin-bottom: 30px;
+    list-style: none;
 }
 
 .scorelist ul li {

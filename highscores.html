@@ -7,41 +7,19 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    <header>
-        <h2><a href="">View high scores</a></h2>
-
-        <div>
-            <h2>Time: <span id="countdown">75</span></h2>
-        </div>
-    </header>
-
-    <!-- FINAL SCORE -->
-    <section id="finalscore" class="score">
-        <div>
-            <h2>Your final score is:<span id="score"></span></h2>
-            <form class="score-form">
-                <div>
-                    <input type="text" name="high-score" placeholder="Type in your initials">
-                </div>
-                <div>
-                    <button class="score-btn" id="save-score" type="submit">Submit Score</button>
-                    
-                </div>
-                
-            </form>
-        </div>
-    </section>
 
     <!-- HIGH SCORES -->
     <section id="highscores" class="highscores">
-        <h2>High Scores</h2>
-        <div id="highscorelist" class="scorelist">
-            <ul>
-                <li>ab 20</li>
-                <li>jj 33</li>
-            </ul>
-            <button class="score-btn" id="back-btn" type="submit">Go Back</button>
-            <button class="score-btn" id="clear-score" type="submit">Clear Scores</button>
+        <div class="highscore-container">
+            <h2>High Scores</h2>
+            <div id="highscorelist" class="scorelist">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <button class="score-btn" id="back-btn" type="submit">Go Back</button>
+                <button class="score-btn" id="clear-score" type="submit">Clear Scores</button>
+            </div>
         </div>
     </section>
 </body>

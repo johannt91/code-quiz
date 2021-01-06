@@ -40,12 +40,23 @@
             <!-- VALIDATE ANSWER -->
             <div id="answer" class="answer">
                 <hr>
-                <h3>Correct!</h3>
+                <h3 id="right-wrong"></h3>
             </div>
         </section>
 
-        <section id="finalscore" class="scores">
-            <h2>Your final score is:<span id="score"></span> </h2>
+        <!-- DISPLAY AND SUBMIT FINAL SCORE -->
+        <section id="submit-score" class="score-submit">
+            <div class="scores">
+                <h2>You got<span id="score"></span>questions correct! Final score: <span id="final-score"></span></h2>
+                <form class="score-form">
+                    <div>
+                        <input type="text" name="high-score" placeholder="Type in your initials">
+                    </div>
+                    <div>
+                        <button class="score-btn" id="save-score" type="submit">Submit Score</button>   
+                    </div>
+                </form>
+            </div>
         </section>
 
 

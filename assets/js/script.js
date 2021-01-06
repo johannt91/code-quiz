@@ -1,5 +1,4 @@
 var score = 0;
-
 var qIndex = 0;
 
 //time values
@@ -13,6 +12,10 @@ var startBtn = document.getElementById("start");
 var instructionsEl = document.querySelector("#instructions");
 var questionsEl = document.querySelector("#questions");
 var checkAnswer = document.getElementById("answer");
+var yesNo = document.getElementById("right-wrong");
+var submitScore = document.getElementById("submit-score");
+var showScore = document.getElementById("score");
+var finalScore = document.getElementById("final-score");
 
 //answered
 var answered = 0;
@@ -67,6 +70,8 @@ function countdown(){
 function startQuiz() {
     instructionsEl.style.display = "none";
     questionsEl.style.display = "block";
+    checkAnswer.style.display = "none";
+    submitScore.style.display = "none";
 
     answered = 0;
     countdown();
@@ -89,19 +94,21 @@ function generateQuestion() {
 function validateAnswer (answer) {
     checkAnswer.style.display ="block";
     setTimeout(function() {
-        checkAnswer.style.display = "none";
-    },2000);
+        checkAnswer.style.display ="none";
+    },1500);
 
     if (questions[qIndex].answer === questions[qIndex].options[answer]) {
-        checkAnswer.textContent = "Correct!"
+     yesNo.innerText = "Correct!"
+     score++;
+     console.log(score);
     }
     else {
-        checkAnswer.innerHTML = "Wrong!"
+        yesNo.innerText = "Wrong!"
         timeLeft -= penalty;
     }
     qIndex++;
 
-    if (qIndex <questions.length) {
+    if (qIndex < questions.length) {
         generateQuestion();
     }
     else {
@@ -118,10 +125,11 @@ function fourthQuestion() { validateAnswer(3); }
 //end Quiz
 
 function endQuiz() {
-
+    questionsEl.style.display = "none";
+    submitScore.style.display = "flex";
+    showScore.textContent = " " + score + "/5 ";
+    finalScore.textContent = " " + timeLeft;
 }
-
-
 
 //Event Listeners
 startBtn.addEventListener("click", startQuiz);
