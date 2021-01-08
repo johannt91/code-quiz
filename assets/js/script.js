@@ -1,5 +1,7 @@
 var score = 0;
 var qIndex = 0;
+var scoreList = [];
+
 
 //time values
 var timeLeft = 75;
@@ -28,6 +30,9 @@ var optionBtn1 = document.querySelector("#option1");
 var optionBtn2 = document.querySelector("#option2");
 var optionBtn3 = document.querySelector("#option3");
 var optionBtn4 = document.querySelector("#option4");
+
+//form to submit initials
+var formEl = document.querySelector("form");
 
 //array to store questions as objects
 var questions = [{
@@ -122,14 +127,33 @@ function secondQuestion() { validateAnswer(1); }
 function thirdQuestion() { validateAnswer(2); }
 function fourthQuestion() { validateAnswer(3); }
 
-//end Quiz
-
+//End Quiz
 function endQuiz() {
     questionsEl.style.display = "none";
     submitScore.style.display = "flex";
     showScore.textContent = " " + score + "/5 ";
     finalScore.textContent = " " + timeLeft;
 }
+
+//submit initials with score
+formEl.addEventListener("submit", function(event){
+    event.preventDefault();
+    var inputInitials = document.querySelector("input[name='initials']").value.toUpperCase();
+
+    if (!inputInitials) {
+        alert("Please type in your initials!");
+        return false;
+    }
+    var highScores = {
+        name: inputInitials,
+        score: timeLeft
+    };
+    formEl.reset();
+    scoreList.push(highScores);
+    console.log(scoreList);
+    localStorage.setItem("High Scores", JSON.stringify(scoreList));
+});
+
 
 //Event Listeners
 startBtn.addEventListener("click", startQuiz);

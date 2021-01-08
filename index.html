@@ -50,12 +50,27 @@
                 <h2>You got<span id="score"></span>questions correct! Final score: <span id="final-score"></span></h2>
                 <form class="score-form">
                     <div>
-                        <input type="text" name="high-score" placeholder="Type in your initials">
+                        <input type="text" id="initials" name="initials" placeholder="Type in your initials">
                     </div>
                     <div>
                         <button class="score-btn" id="save-score" type="submit">Submit Score</button>   
                     </div>
                 </form>
+            </div>
+        </section>
+
+        <!-- HIGH SCORES -->
+        <section id="highscores" class="highscores">
+            <div class="highscore-container">
+                <h2>High Scores</h2>
+                <div id="highscorelist" class="scorelist">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <button class="score-btn" id="back-btn" type="submit">Go Back</button>
+                    <button class="score-btn" id="clear-score" type="submit">Clear Scores</button>
+                </div>
             </div>
         </section>
 

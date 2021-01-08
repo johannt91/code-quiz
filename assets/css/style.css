@@ -211,7 +211,7 @@ form input {
 }
 
 .highscores {
-    display: flex;
+    display: none;
     justify-content: center;
     text-align: center;
 
