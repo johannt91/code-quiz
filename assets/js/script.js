@@ -40,6 +40,7 @@ var list = document.querySelector("#list-high-scores");
 //other buttons
 var replayBtn = document.querySelector("#back-btn");
 var clearHighScores = document.querySelector("#clear-score");
+var viewHighScores = document.getElementById("view-high-scores");
 
 //array to store questions as objects
 var questions = [{
@@ -176,10 +177,10 @@ formEl.addEventListener("submit", function(event){
 //Create score list
 function createScoreList() {
     var playerHighScores = JSON.parse(localStorage.getItem("HighScores")) || [];
-
+    list.innerHTML="";
      for (i = 0; i<playerHighScores.length; i++){
         var listItemEl = document.createElement("li");
-        listItemEl.textContent = playerHighScores[i].inputInitials + " - " + playerHighScores[i].timeLeft;
+        listItemEl.textContent = playerHighScores[i].name + " - " + playerHighScores[i].score;
         list.appendChild(listItemEl);
     }
 }
@@ -190,6 +191,16 @@ clearHighScores.addEventListener("click", function(event){
     list.textContent = "";
     alert("High Scores Cleared!");
 });
+
+viewHighScores.addEventListener("click", function(event){
+    event.preventDefault();
+    instructionsEl.style.display = "none";
+    headerEl.style.display = "none";
+    questionsEl.style.display = "none";
+    checkAnswer.style.display = "none";
+    submitScore.style.display = "none";
+    highScoreList.style.display = "flex"; 
+})
 
 //restart quiz
 replayBtn.addEventListener("click", function() {
@@ -204,7 +215,6 @@ replayBtn.addEventListener("click", function() {
     score = 0;
     qIndex = 0;
 });
-
 
 //Event Listeners
 startBtn.addEventListener("click", startQuiz);
